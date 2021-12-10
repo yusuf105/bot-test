@@ -89,6 +89,7 @@ module.exports = client = async (client, mek) => {
 		const args = body.trim().split(/ +/).slice(1)
 		const isCmd = body.startsWith(prefix)
 		const q = args.join(' ')
+const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
 		const botNumber = client.user.jid
 		const botNumberss = client.user.jid + '@c.us'
 		const isGroup = from.endsWith('@g.us')
@@ -335,6 +336,19 @@ module.exports = client = async (client, mek) => {
 				quoted:finv, contextInfo: {
 					mentionedJid: [ownerNumber,sendernya], forwardingScore: 999, isForwarded: true, externalAdReply: {title: `${jmn} - ${week} ${weton} - ${calender}`,body:"Yusuf",previewType:"PHOTO",thumbnail:ofrply,sourceUrl:"https://youtube.com/UCHIMODDER"}}})
 			break
+case 'loli':
+case 'waifu':
+              kon = (`https://api.waifu.pics/sfw/${command}`)
+anu = await getBuffer(kon)
+buff = anu.url
+              
+              buttons = [{buttonId: `${prefix}waifu`,buttonText:{displayText: `➡️Next`},type:1}]
+              imageMsg = (await client.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
+              buttonsMessage = {footerText:'✗✗✗ Yusuf', imageMessage: imageMsg,
+              contentText:`Subrek yt : UCHIMODDER`,buttons,headerType:4}
+              prep = await client.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftrol})
+              client.relayWAMessage(prep)
+              break
 		case 'allmenu': case 'command':
 			menu = `\n${tampilUcapan} ${pushname}\n\n\nSTICKER MENU\n\n${prefix}sticker\n${prefix}stickerwm nama|author\n${prefix}take nama|author\n${prefix}attp <text>\n\nFUN MENU\n\n${prefix}fast\n${prefix}slow\n${prefix}reverse\n${prefix}gtts [kode negara] <text>\n${prefix}readmore\n${prefix}detikvn\n${prefix}detikvideo\n${prefix}caripesan <text>\n${prefix}listgroup\n${prefix}status\n${prefix}wiki <text>\n${prefix}kalkulator 1+1=\n${prefix}translate\n\nDOWNLOAD MENU\n\n${prefix}ytmp4 <link>\n${prefix}ytmp3 <link>\n${prefix}ytsearch <text>\n${prefix}igdl <link>\n${prefix}tiktokdl <link>\n\nGROP MENU\n\n${prefix}setnamegc <nama group>\n${prefix}setdeskgc <desk group>\n${prefix}kick @tag member\n${prefix}add 62xxxxx\n${prefix}hidetag <text>\n${prefix}sider\n${prefix}tag\n${prefix}tagme\n${prefix}demote @tag admin\n${prefix}promote @tag member\n${prefix}linkgroup\n${prefix}resetlinkgroup\n${prefix}opengc\n${prefix}closegc\n${prefix}antilink 1/0\n${prefix}antivirtex 1/0\n${prefix}tictactoe @tag teman\n${prefix}delttt\n\nASUPAN MENU\n\n${prefix}asupancecan\n${prefix}asupanhijab\n${prefix}asupansantuy\n${prefix}asupanukty\n${prefix}asupanbocil\n${prefix}asupanrika\n\nOWNER MENU\n\n${prefix}leave\n${prefix}public\n${prefix}self\n${prefix}setprefix\n${prefix}jadiv\n\n`
 			sendButImage(from, `${menu}`, "By Yusuf", ofrply, 
